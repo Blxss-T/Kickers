@@ -59,10 +59,9 @@ export default function Community() {
       </div>
 
       <div
+        className="grid-community"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))',
-          gridAutoRows: '230px',
           gap: 'clamp(12px,1.4vw,20px)',
         }}
       >

@@ -14,7 +14,7 @@ const pillars = [
   {
     num: '03',
     title: 'Trusted',
-    body: 'Built on Kigali\'s word of mouth. The name the community sends their own people to.',
+    body: "Built on Kigali's word of mouth. The name the community sends their own people to.",
     delay: 280,
   },
 ];
@@ -38,7 +38,14 @@ export default function Pillars() {
             className="rv"
             data-reveal
             data-delay={p.delay || undefined}
-            style={{ borderTop: '1px solid #d6d2cb', paddingTop: 30 }}
+            data-tilt
+            data-tilt-amount="7"
+            data-tilt-perspective="800"
+            style={{
+              borderTop: '1px solid #d6d2cb',
+              paddingTop: 30,
+              cursor: 'default',
+            }}
           >
             <p className="d" style={{ color: 'var(--color-accent)', fontSize: 18, marginBottom: 24 }}>{p.num}</p>
             <h3 className="d" style={{ fontSize: 'clamp(32px,3.2vw,48px)', color: 'var(--color-ink)', marginBottom: 18 }}>{p.title}</h3>

@@ -1,3 +1,5 @@
+import { WA_LINK } from '@/lib/config';
+
 const brands = [
   { num: '01', name: 'Jordan', img: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1100&q=85', delay: 0 },
   { num: '02', name: 'Nike', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1100&q=85', delay: 120 },
@@ -38,14 +40,19 @@ export default function Brands() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(360px,1fr))', gap: 'clamp(16px,1.6vw,26px)' }}>
+      <div className="grid-brands" style={{ display: 'grid', gap: 'clamp(16px,1.6vw,26px)' }}>
         {brands.map(b => (
           <a
             key={b.num}
-            href="#"
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rv zoom-wrap-sm"
             data-reveal
             data-delay={b.delay || undefined}
+            data-tilt
+            data-tilt-amount="4"
+            data-tilt-perspective="1200"
             style={{
               position: 'relative',
               display: 'block',
@@ -74,6 +81,33 @@ export default function Brands() {
             </div>
           </a>
         ))}
+      </div>
+
+      {/* View More */}
+      <div style={{ textAlign: 'center', marginTop: 'clamp(40px,5vw,64px)' }}>
+        <a
+          href={WA_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="b hover-lift rv"
+          data-reveal
+          data-delay="200"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 10,
+            border: '1px solid rgba(255,255,255,.22)',
+            color: '#fff',
+            fontWeight: 600,
+            fontSize: 11,
+            letterSpacing: '.16em',
+            textTransform: 'uppercase',
+            padding: '14px 32px',
+            textDecoration: 'none',
+          }}
+        >
+          View More →
+        </a>
       </div>
     </section>
   );

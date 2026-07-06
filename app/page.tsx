@@ -7,8 +7,10 @@ import Story from '@/components/Story';
 import Pillars from '@/components/Pillars';
 import Location from '@/components/Location';
 import Community from '@/components/Community';
+import Socials from '@/components/Socials';
 import Footer from '@/components/Footer';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import CursorEffects from '@/components/CursorEffects';
 
 export default function Home() {
   return (
@@ -51,11 +53,14 @@ export default function Home() {
         <Pillars />
         <Location />
         <Community />
+        <Socials />
       </main>
       <Footer />
 
       {/* Client-side: scroll reveals, parallax, nav scroll effect */}
       <ScrollAnimations />
+      {/* Cursor-driven tilt & parallax on pillar + brand cards */}
+      <CursorEffects />
     </>
   );
 }

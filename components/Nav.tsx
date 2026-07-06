@@ -1,4 +1,25 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+const LINKS = [
+  { href: '#arrivals', label: 'Arrivals' },
+  { href: '#brands', label: 'Brands' },
+  { href: '#story', label: 'Story' },
+  { href: '#community', label: 'Culture' },
+  { href: '#visit', label: 'Visit Store' },
+];
+
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
     <nav
       data-nav
@@ -16,14 +37,14 @@ export default function Nav() {
         background: 'transparent',
       }}
     >
-      <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+      <a href="#top" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', zIndex: 110, position: 'relative' }}>
         <img src="/assets/kgl-logo.jpg" alt="Kigali Kicks" style={{ width: 42, height: 42, display: 'block', borderRadius: 2 }} />
         <span className="d" style={{ color: '#fff', fontSize: 19, letterSpacing: '.04em' }}>
           KIGALI<span style={{ color: 'var(--color-accent)' }}>.</span>KICKS
         </span>
       </a>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(16px,2.4vw,34px)' }}>
+      <div className="nav-links">
         <a href="#arrivals" className="lnk">Arrivals</a>
         <a href="#brands" className="lnk">Brands</a>
         <a href="#story" className="lnk">Story</a>
@@ -47,6 +68,26 @@ export default function Nav() {
         >
           Visit Store
         </a>
+      </div>
+
+      <button
+        type="button"
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+        className={`nav-burger${open ? ' open' : ''}`}
+        onClick={() => setOpen(v => !v)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div className={`mobile-menu${open ? ' open' : ''}`}>
+        {LINKS.map(l => (
+          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+            {l.label}
+          </a>
+        ))}
       </div>
     </nav>
   );

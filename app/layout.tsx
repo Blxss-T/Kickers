@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${oswald.variable} ${archivo.variable}`}>
-      <body className="bg-ink text-white" style={{ fontFamily: "var(--font-archivo), 'Archivo', sans-serif" }}>
+      <body suppressHydrationWarning className="bg-ink text-white" style={{ fontFamily: "var(--font-archivo), 'Archivo', sans-serif" }}>
         {children}
       </body>
     </html>

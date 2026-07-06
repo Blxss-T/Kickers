@@ -56,7 +56,7 @@ export default function Arrivals() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(290px,1fr))', gap: 'clamp(24px,3vw,52px)' }}>
+      <div className="grid-arrivals" style={{ display: 'grid', gap: 'clamp(24px,3vw,52px)' }}>
         {products.map(p => (
           <div key={p.num} className="rv" data-reveal data-delay={p.delay || undefined}>
             <div className="zoom-wrap" style={{ position: 'relative', overflow: 'hidden', background: '#e7e4df', aspectRatio: '4/5' }}>
@@ -79,7 +79,9 @@ export default function Arrivals() {
               <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
                 <h3 className="d" style={{ fontSize: 'clamp(22px,1.9vw,30px)', color: 'var(--color-ink)' }}>{p.name}</h3>
                 <a
-                  href="#visit"
+                  href="https://wa.me/250700000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="b hover-lift"
                   style={{
                     display: 'inline-flex',

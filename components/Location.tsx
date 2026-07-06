@@ -9,9 +9,9 @@ export default function Location() {
       }}
     >
       <div
+        className="grid-location"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(360px,1fr))',
           gap: 'clamp(40px,5vw,84px)',
           alignItems: 'center',
         }}
@@ -49,7 +49,9 @@ export default function Location() {
             </div>
           </div>
           <a
-            href="#"
+            href="https://wa.me/250700000000"
+            target="_blank"
+            rel="noopener noreferrer"
             className="b rv hover-lift"
             data-reveal
             data-delay="340"
@@ -97,17 +99,19 @@ export default function Location() {
           <div
             style={{
               position: 'absolute',
-              right: 18,
+              right: 'clamp(10px,3vw,18px)',
               bottom: -26,
               border: '1px solid rgba(255,255,255,.12)',
               overflow: 'hidden',
               boxShadow: '0 24px 50px rgba(0,0,0,.6)',
+              width: 'clamp(140px,32vw,210px)',
+              maxWidth: '60%',
             }}
           >
             <img
               src="/assets/location.jpg"
               alt="Store location"
-              style={{ width: 210, height: 148, objectFit: 'cover', display: 'block' }}
+              style={{ width: '100%', height: 'auto', aspectRatio: '210/148', objectFit: 'cover', display: 'block' }}
             />
           </div>
         </div>

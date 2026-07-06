@@ -3,33 +3,46 @@ export default function Hero() {
     <section
       id="top"
       style={{
+        position: 'relative',
         minHeight: '100vh',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit,minmax(440px,1fr))',
+        overflow: 'hidden',
         background: 'var(--color-ink)',
       }}
     >
-      {/* Left */}
+      {/* Jordan background image */}
+      <div
+        data-parallax
+        data-speed="-40"
+        style={{
+          position: 'absolute',
+          inset: '-9% 0',
+          backgroundImage: "url('https://images.unsplash.com/photo-1552346154-21d32810aba3?w=1600&q=85')",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          willChange: 'transform',
+        }}
+      />
+      {/* Dark overlay so foreground content stays legible over the photo */}
       <div
         style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(5,5,5,.8) 0%, rgba(5,5,5,.6) 45%, rgba(5,5,5,.88) 100%)',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: 'clamp(96px,11vh,150px) clamp(28px,5vw,84px) clamp(36px,5vh,56px)',
-          position: 'relative',
         }}
       >
-        <div
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            bottom: 0,
-            width: 1,
-            background: 'linear-gradient(180deg,transparent,rgba(255,255,255,.08),transparent)',
-          }}
-        />
-        <p className="ey rv" data-reveal style={{ color: 'var(--color-accent)' }}>
+        <p className="ey rv hero-eyebrow" data-reveal style={{ color: 'var(--color-accent)' }}>
           Authentic · Curated · Kigali
         </p>
         <div>
@@ -39,7 +52,7 @@ export default function Hero() {
             data-delay="120"
             style={{ color: '#fff', fontSize: 'clamp(64px,8.6vw,138px)' }}
           >
-            Walk<br />Different.
+            Walk<br />Different<span className="text-dot">.</span>
           </h1>
           <p
             className="b rv"
@@ -57,10 +70,10 @@ export default function Hero() {
             with intent, never listed in bulk. This is the culture, elevated.
           </p>
           <div
-            className="rv"
+            className="rv hero-cta"
             data-reveal
             data-delay="400"
-            style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 'clamp(26px,4vh,40px)' }}
+            style={{ display: 'flex', gap: 14, marginTop: 'clamp(26px,4vh,40px)' }}
           >
             <a
               href="#arrivals"
@@ -68,6 +81,7 @@ export default function Hero() {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: 10,
                 background: 'var(--color-accent)',
                 color: '#fff',
@@ -77,6 +91,7 @@ export default function Hero() {
                 textTransform: 'uppercase',
                 padding: '16px 30px',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap',
               }}
             >
               Explore Arrivals →
@@ -87,6 +102,7 @@ export default function Hero() {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: 10,
                 border: '1px solid rgba(255,255,255,.34)',
                 color: '#fff',
@@ -96,6 +112,7 @@ export default function Hero() {
                 textTransform: 'uppercase',
                 padding: '16px 30px',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap',
               }}
             >
               The Story
@@ -104,32 +121,8 @@ export default function Hero() {
         </div>
         <div className="rv" data-reveal data-delay="560" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
           <span className="nl" style={{ color: 'rgba(255,255,255,.4)' }}>01 — Kigali, Rwanda</span>
+          <span className="nl" style={{ color: 'rgba(255,255,255,.6)' }}>Air Jordan 1 · Bred &apos;24</span>
         </div>
-      </div>
-
-      {/* Right image */}
-      <div style={{ position: 'relative', overflow: 'hidden', minHeight: '62vh', background: '#111' }}>
-        <div
-          data-parallax
-          data-speed="-50"
-          style={{
-            position: 'absolute',
-            inset: '-9% 0',
-            backgroundImage: "url('https://images.unsplash.com/photo-1552346154-21d32810aba3?w=1400&q=85')",
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            willChange: 'transform',
-          }}
-        />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,0) 30%,rgba(0,0,0,.45))' }} />
-        {/* Animated power-line at the panel boundary */}
-        <div
-          className="power-line"
-          style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 2, zIndex: 10 }}
-        />
-        <span className="nl rv" data-reveal data-delay="500" style={{ position: 'absolute', right: 24, bottom: 24, color: 'rgba(255,255,255,.9)' }}>
-          Air Jordan 1 · Bred &apos;24
-        </span>
       </div>
     </section>
   );
